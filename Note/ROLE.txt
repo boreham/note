@@ -1,0 +1,12 @@
+﻿CREATE TABLE Roles (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL
+);
+
+CREATE TABLE UserRoles (
+    UserId INT,
+    RoleId INT,
+    PRIMARY KEY (UserId, RoleId),
+    FOREIGN KEY (UserId) REFERENCES Users(Id),
+    FOREIGN KEY (RoleId) REFERENCES Roles(Id)
+);

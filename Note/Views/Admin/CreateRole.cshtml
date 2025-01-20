@@ -1,0 +1,23 @@
+﻿@model RoleViewModel
+
+@{
+    ViewData["Title"] = "Создание роли";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="CreateRole" method="post">
+    <div class="form-group">
+        <label for="RoleName">Название роли</label>
+        <input asp-for="RoleName" class="form-control" id="RoleName" />
+        <span asp-validation-for="RoleName" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Создать роль</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
